@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Outfit", "Plus Jakarta Sans", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -14,6 +14,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -33,46 +34,42 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ivory: var(--ivory);
-  --color-sand: var(--sand);
-  --color-forest: var(--forest);
-  --color-forest-soft: var(--forest-soft);
-  --color-gold: var(--gold);
-  --shadow-soft: var(--shadow-soft);
-  --shadow-float: var(--shadow-float);
+
+  --color-navy-dark: #0A1128;
+  --color-navy-deep: #0B192C;
+  --color-navy-surface: #1E293B;
+  --color-blue-primary: #0066FF;
+  --color-blue-hover: #0052CC;
+  --color-cyan-glow: #38BDF8;
+  --color-gold: #F59E0B;
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 
-  --ivory: oklch(0.978 0.012 90);
-  --sand: oklch(0.935 0.021 85);
-  --forest: oklch(0.31 0.045 155);
-  --forest-soft: oklch(0.72 0.03 155);
-  --gold: oklch(0.78 0.09 85);
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #0B192C;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0B192C;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --accent: #E0F2FE;
+  --accent-foreground: #0284C7;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #0066FF;
 
-  --background: var(--ivory);
-  --foreground: oklch(0.24 0.02 150);
-  --card: oklch(0.995 0.006 90);
-  --card-foreground: oklch(0.24 0.02 150);
-  --popover: var(--card);
-  --popover-foreground: var(--foreground);
-  --primary: var(--forest);
-  --primary-foreground: oklch(0.98 0.012 90);
-  --secondary: var(--sand);
-  --secondary-foreground: var(--forest);
-  --muted: oklch(0.945 0.014 88);
-  --muted-foreground: oklch(0.52 0.02 150);
-  --accent: oklch(0.92 0.02 150);
-  --accent-foreground: var(--forest);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.014 90);
-  --input: oklch(0.9 0.014 90);
-  --ring: var(--forest-soft);
-
-  --shadow-soft: 0 1px 2px oklch(0.31 0.045 155 / 0.04), 0 14px 40px -18px oklch(0.31 0.045 155 / 0.16);
-  --shadow-float: 0 24px 60px -24px oklch(0.31 0.045 155 / 0.28);
+  --shadow-soft: 0 4px 20px -2px rgba(11, 25, 44, 0.06), 0 2px 6px -1px rgba(11, 25, 44, 0.04);
+  --shadow-float: 0 20px 40px -15px rgba(11, 25, 44, 0.12), 0 0 1px rgba(11, 25, 44, 0.1);
+  --shadow-glow: 0 0 30px rgba(0, 102, 255, 0.25);
 }
 
 @layer base {
@@ -82,7 +79,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 5.5rem;
   }
 
   body {
@@ -90,34 +87,41 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   h1,
   h2,
-  h3 {
+  h3,
+  h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
   }
 }
 
 @utility container-x {
   margin-inline: auto;
   width: 100%;
-  max-width: 80rem;
-  padding-inline: 1.25rem;
+  max-width: 82rem;
+  padding-inline: 1.5rem;
 }
 
 @utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.75rem;
-  letter-spacing: 0.22em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted-foreground);
+  color: #0066FF;
 }
 
+/* Animations & Keyframes */
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -125,12 +129,79 @@
   }
 }
 
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+.animate-float {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
 @utility reveal {
   opacity: 0;
 }
 
 .reveal.is-visible {
-  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: reveal-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
