@@ -1,4 +1,4 @@
-import { MapPin, Phone, MessageCircle, Instagram, Clock } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Instagram, Clock, CheckCircle2, Navigation } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { CLINIC } from "./data";
 
@@ -7,76 +7,90 @@ export function Contacts() {
     <section id="contacts" className="bg-slate-50 py-20 md:py-28">
       <div className="container-x">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow">Локация</p>
+          <p className="eyebrow">Контакты и Филиалы</p>
           <h2 className="mt-3 text-3xl font-extrabold text-[#0F172A] sm:text-4xl lg:text-5xl font-display">
-            Контакты клиники
+            Контакты «{CLINIC.name}»
           </h2>
           <p className="mt-2 text-base text-slate-500">
-            Ждем вас на приём ежедневно в Жезказгане.
+            Ждем вас на приём круглосуточно по предварительной записи в Жезказгане.
           </p>
         </Reveal>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <Reveal className="space-y-6">
+            {/* Address Card */}
             <div className="flex gap-4">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-blue-100 text-[#2563EB]">
                 <MapPin className="h-5 w-5" />
               </span>
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Адрес</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Филиал</p>
                 <p className="mt-1 text-base font-bold text-[#0F172A]">{CLINIC.address}</p>
+                <div className="mt-2 flex items-center gap-2">
+                  <span className="inline-flex items-center rounded-md border border-slate-300 bg-white px-2.5 py-1 text-xs font-bold text-slate-700 shadow-sm">
+                    Показать вход
+                  </span>
+                  <span className="inline-flex items-center rounded-md border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-bold text-[#2563EB]">
+                    Рассмотреть
+                  </span>
+                </div>
               </div>
             </div>
 
+            {/* Hours Card */}
+            <div className="flex gap-4">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-emerald-100 text-emerald-600">
+                <Clock className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">График работы</p>
+                <p className="mt-1 text-base font-bold text-emerald-600">{CLINIC.hours}</p>
+                <p className="text-xs font-medium text-slate-500">{CLINIC.hoursSub}</p>
+              </div>
+            </div>
+
+            {/* Phone Card */}
             <div className="flex gap-4">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-blue-100 text-[#2563EB]">
                 <Phone className="h-5 w-5" />
               </span>
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Телефон</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Телефон для записи</p>
                 <a
                   href={CLINIC.phoneMainHref}
-                  className="mt-1 block text-base font-bold text-[#0F172A] hover:text-[#2563EB]"
+                  className="mt-1 block text-lg font-extrabold text-[#0F172A] hover:text-[#2563EB]"
                 >
                   {CLINIC.phoneMain}
                 </a>
               </div>
             </div>
 
-            <div className="flex gap-4">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-blue-100 text-[#2563EB]">
-                <Clock className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Режим работы</p>
-                <p className="mt-1 text-base font-bold text-[#0F172A]">Ежедневно 09:00 — 19:00</p>
-              </div>
-            </div>
-
+            {/* Social Buttons (Match 2GIS screenshot) */}
             <div className="flex gap-3 pt-2">
-              <a
-                href={CLINIC.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 text-sm font-bold text-white shadow-sm transition-transform hover:scale-105"
-              >
-                <MessageCircle className="h-4 w-4" /> WhatsApp
-              </a>
               <a
                 href={CLINIC.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 text-sm font-bold text-slate-800 shadow-sm transition-colors hover:bg-slate-50"
+                className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 px-5 text-sm font-bold text-white shadow-md transition-transform hover:scale-[1.02]"
               >
-                <Instagram className="h-4 w-4 text-pink-600" /> Instagram
+                <Instagram className="h-5 w-5" /> Instagram
+              </a>
+              <a
+                href={CLINIC.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 text-sm font-bold text-white shadow-md transition-transform hover:scale-[1.02]"
+              >
+                <MessageCircle className="h-5 w-5" /> WhatsApp
               </a>
             </div>
           </Reveal>
 
+          {/* Map */}
           <Reveal delay={100}>
             <div className="overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
               <iframe
-                title="Dream Smile на карте"
+                title="Али дент на карте"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=67.68%2C47.77%2C67.75%2C47.81&layer=mapnik&marker=47.7891%2C67.7139"
                 loading="lazy"
                 className="h-[22rem] w-full border-0 sm:h-[26rem]"
@@ -103,7 +117,7 @@ export function Footer() {
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold tracking-tight text-white font-display">
-                Dream Smile
+                {CLINIC.name}
               </span>
               <span className="text-[10px] font-medium text-slate-400">
                 стоматология
@@ -112,11 +126,11 @@ export function Footer() {
           </a>
 
           <p className="text-xs leading-relaxed text-slate-400">
-            Современная стоматология для всей семьи. Мы создаем улыбки, которыми вы будете гордиться.
+            Современная стоматология «{CLINIC.name}» в Жезказгане. Мы создаем улыбки, которыми вы будете гордиться.
           </p>
 
           <p className="pt-2 text-[11px] text-slate-500">
-            © {new Date().getFullYear()} Dream Smile. Все права защищены.
+            © {new Date().getFullYear()} {CLINIC.name}. Все права защищены.
           </p>
         </div>
 
@@ -147,8 +161,8 @@ export function Footer() {
           <h4 className="text-sm font-bold text-white font-display">Контакты</h4>
 
           <div className="space-y-2 text-xs text-slate-400">
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 shrink-0 text-slate-400" />
+            <div className="flex items-start gap-2">
+              <MapPin className="h-4 w-4 shrink-0 text-slate-400 mt-0.5" />
               <span>{CLINIC.address}</span>
             </div>
             <div className="flex items-center gap-2">

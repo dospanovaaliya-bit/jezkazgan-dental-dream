@@ -12,9 +12,9 @@ import { Booking } from "@/components/site/Booking";
 import { Contacts, Footer } from "@/components/site/Contacts";
 import { MobileBar } from "@/components/site/MobileBar";
 
-const title = "Dream Smile — современная стоматология в Жезказгане";
+const title = "Али дент — стоматология в Жезказгане";
 const description =
-  "Премиальная стоматология Dream Smile в Жезказгане: лечение, чистка, отбеливание, имплантация. Ежедневно 09:00–19:00. Запись: +7 707 032 03 20.";
+  "Стоматология «Али дент» в Жезказгане: 2 филиала, круглосуточно по предварительной записи. 5.0 рейтинг в 2ГИС. Запись: +7 (771) 156-35-29.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,17 +32,16 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Dentist",
-          name: "Dream Smile",
-          image: "https://cdn.gpteng.co/blank-app-v1.svg",
+          name: "Али дент",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Проспект Алашахана, 66",
+            streetAddress: "городская администрация, 1 этаж",
             addressLocality: "Жезказган",
             addressCountry: "KZ",
           },
-          telephone: "+77070320320",
-          openingHours: "Mo-Su 09:00-19:00",
-          aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "42" },
+          telephone: "+77711563529",
+          openingHours: "Mo-Su 00:00-24:00",
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "163" },
         }),
       },
     ],

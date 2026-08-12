@@ -1,4 +1,4 @@
-import { ArrowRight, Play, Star, Sparkles } from "lucide-react";
+import { ArrowRight, Play, Star, CheckCircle2 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import { CLINIC } from "./data";
 import { Reveal } from "./Reveal";
@@ -17,13 +17,13 @@ export function Hero() {
         <Reveal className="space-y-6">
           {/* Top Pill Tag */}
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/60 px-4 py-1.5 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-blue-400" />
+            <span className="h-2 w-2 rounded-full bg-emerald-400" />
             <span className="text-xs font-semibold text-slate-300">
-              Премиальная стоматология в Жезказгане
+              Стоматология «{CLINIC.name}» · {CLINIC.branches}
             </span>
           </div>
 
-          {/* Heading with "хочется гордиться" in vibrant cyan/blue */}
+          {/* Heading */}
           <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[4.2rem] font-display">
             Здоровая
             <br />
@@ -36,7 +36,7 @@ export function Hero() {
 
           {/* Subtitle */}
           <p className="max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg">
-            Современные технологии, опытные врачи и забота о каждом пациенте. Мы создаем улыбки, которые меняют жизнь.
+            Современные технологии, опытные врачи и круглосуточная забота о каждом пациенте в Жезказгане. Мы создаем улыбки, которые меняют жизнь.
           </p>
 
           {/* Dual Action Buttons */}
@@ -60,7 +60,7 @@ export function Hero() {
             </a>
           </div>
 
-          {/* Bottom Social Proof & Rating Widgets */}
+          {/* Bottom Social Proof & Verified Rating Widgets */}
           <div className="flex flex-wrap items-center gap-6 border-t border-slate-800/80 pt-8">
             {/* Avatar Stack + Text */}
             <div className="flex items-center gap-3">
@@ -82,7 +82,7 @@ export function Hero() {
                 />
               </div>
               <div>
-                <p className="text-sm font-extrabold text-white">Более 3 500</p>
+                <p className="text-sm font-extrabold text-white">{CLINIC.happyPatients}</p>
                 <p className="text-xs text-slate-400">счастливых пациентов</p>
               </div>
             </div>
@@ -90,16 +90,23 @@ export function Hero() {
             {/* Divider line */}
             <div className="hidden h-10 w-px bg-slate-800 sm:block" />
 
-            {/* Rating Box */}
+            {/* Verified Rating Box (From 2GIS screenshot) */}
             <div className="flex items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900/60 px-4 py-2.5 backdrop-blur-md">
-              <span className="text-2xl font-black text-white font-display">5.0</span>
+              <span className="text-2xl font-black text-white font-display">{CLINIC.rating}</span>
               <div>
-                <div className="flex gap-0.5 text-amber-400">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-amber-400" />
-                  ))}
+                <div className="flex items-center gap-1.5">
+                  <div className="flex gap-0.5 text-amber-400">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="h-3.5 w-3.5 fill-amber-400" />
+                    ))}
+                  </div>
+                  <span className="flex items-center gap-1 text-[11px] font-bold text-emerald-400">
+                    <CheckCircle2 className="h-3 w-3" /> Подтверждён
+                  </span>
                 </div>
-                <p className="mt-0.5 text-[11px] text-slate-400">Рейтинг на 2ГИС и Google</p>
+                <p className="mt-0.5 text-[11px] text-slate-400">
+                  {CLINIC.reviewsCount} оценки · {CLINIC.reviewsTextCount} отзывов в 2ГИС
+                </p>
               </div>
             </div>
           </div>
@@ -110,7 +117,7 @@ export function Hero() {
           <div className="overflow-hidden rounded-[2.5rem] border border-slate-800/80 bg-slate-900 shadow-2xl">
             <img
               src={heroImg}
-              alt="Врач Dream Smile консультирует пациента в современном кабинете"
+              alt="Врач Али дент консультирует пациента в современном кабинете"
               width={1200}
               height={1440}
               className="h-[26rem] w-full object-cover sm:h-[32rem] lg:h-[36rem]"

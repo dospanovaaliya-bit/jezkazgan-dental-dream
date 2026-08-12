@@ -31,10 +31,9 @@ export function Header() {
       )}
     >
       <div className="container-x flex h-20 items-center justify-between gap-4">
-        {/* Brand Logo */}
+        {/* Brand Logo: Али дент */}
         <a href="#top" className="flex items-center gap-2.5">
           <div className="grid h-9 w-9 place-items-center text-blue-500">
-            {/* Tooth SVG Icon */}
             <svg
               className="h-8 w-8 fill-current text-[#2563EB]"
               viewBox="0 0 24 24"
@@ -45,10 +44,10 @@ export function Header() {
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-bold tracking-tight text-white font-display">
-              Dream Smile
+              {CLINIC.name}
             </span>
             <span className="text-[11px] font-medium tracking-wide text-slate-400">
-              стоматология
+              Стоматология
             </span>
           </div>
         </a>
@@ -68,15 +67,15 @@ export function Header() {
 
         {/* Right Info & Action */}
         <div className="flex items-center gap-5">
-          {/* Live Open Status */}
+          {/* Live Open Status: Круглосуточно */}
           <div className="hidden items-center gap-2 text-xs font-medium text-slate-300 xl:flex">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
             </span>
             <div>
-              <span className="block text-[11px] text-slate-400">Открыто сейчас</span>
               <span className="block font-semibold text-white">{CLINIC.hours}</span>
+              <span className="block text-[10px] text-slate-400">{CLINIC.hoursSub}</span>
             </div>
           </div>
 
@@ -108,7 +107,7 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer */}
       {open && (
         <div className="fixed inset-x-0 top-20 bottom-0 z-50 flex flex-col justify-between bg-[#0B132B] px-6 py-8 backdrop-blur-2xl lg:hidden">
           <nav className="flex flex-col space-y-4">

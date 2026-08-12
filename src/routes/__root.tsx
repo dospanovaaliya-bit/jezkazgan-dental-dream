@@ -73,8 +73,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dream Smile — стоматология в Жезказгане" },
-      { name: "description", content: "Современная стоматология Dream Smile в Жезказгане." },
+      { title: "Али дент — стоматология в Жезказгане" },
+      { name: "description", content: "Стоматология Али дент в Жезказгане. 2 филиала, 5.0 рейтинг на 2ГИС. Круглосуточно по записи. Тел: +7 (771) 156-35-29." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
